@@ -1,0 +1,65 @@
+/* ExpandableTabs.css - Styling for the expandable tabs component */
+.expandable-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: white;
+  border-radius: 2rem;
+  padding: 0.25rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eaeaea;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tab-selected {
+  background-color: #f5f7fa;
+  color: #4a6fa5;
+}
+
+.tab-unselected:hover {
+  background-color: #f5f7fa;
+  color: #4a6fa5;
+}
+
+.active-tab {
+  color: #4a6fa5;
+}
+
+.tab-separator {
+  width: 1px;
+  height: 24px;
+  background-color: #eaeaea;
+  margin: 0 0.25rem;
+}
+
+.tab-text {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Improve responsive behavior */
+@media (max-width: 480px) {
+  .expandable-tabs {
+    width: 100%; /* Take full width on smaller screens */
+    justify-content: center;
+  }
+  
+  .tab-button {
+    flex: 1;
+    justify-content: center;
+  }
+} 

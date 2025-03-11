@@ -1,0 +1,80 @@
+/* TripDetails.css - Styling for the trip details screen */
+.trip-details-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.trip-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trip-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.trip-title h2 {
+  margin: 0;
+  color: #4a6fa5;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.trip-participants {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.back-to-trips {
+  color: #4a6fa5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.back-to-trips:hover {
+  color: #3a5982;
+}
+
+.trip-nav-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.trip-nav {
+  display: none; /* Hide the old navigation */
+}
+
+.trip-content {
+  margin-top: 0;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .trip-details-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .expandable-tabs {
+    width: 100%;
+    justify-content: center;
+  }
+} 

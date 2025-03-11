@@ -1,0 +1,265 @@
+/* TripList.css - Styling for the trip list screen */
+.trip-list-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.trip-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trip-list-header h2 {
+  color: #4a6fa5;
+  margin: 0;
+  font-weight: 600;
+}
+
+.add-trip-button {
+  background-color: #4a6fa5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+}
+
+.add-trip-button:hover {
+  background-color: #3a5982;
+  transform: translateY(-2px);
+}
+
+.add-trip-button:active {
+  transform: translateY(1px);
+}
+
+.add-trip-button-centered {
+  background-color: #4a6fa5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1rem;
+  margin: 1.5rem auto;
+  display: block;
+}
+
+.add-trip-button-centered:hover {
+  background-color: #3a5982;
+  transform: translateY(-2px);
+}
+
+.no-trips {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.no-trips p {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.new-trip-form {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.new-trip-form input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.new-trip-form input:focus {
+  border-color: #4a6fa5;
+  box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+  outline: none;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.form-actions button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-button {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.cancel-button:hover {
+  background-color: #e0e0e0;
+}
+
+.submit-button {
+  background-color: #4a6fa5;
+  color: white;
+}
+
+.submit-button:hover {
+  background-color: #3a5982;
+}
+
+.submit-button:disabled {
+  background-color: #b0bec5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Trip Cards */
+.trip-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.trip-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.trip-card-header {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.trip-card-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.trip-date {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.trip-card-details {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.trip-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.trip-card-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.delete-trip-button-icon {
+  background-color: transparent;
+  border: none;
+  color: #c62828;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.delete-trip-button-icon:hover {
+  background-color: #ffebee;
+  transform: scale(1.1);
+}
+
+/* Remove the trip-card-actions section */
+.trip-card-actions {
+  display: none;
+}
+
+/* Add these styles to make the card clickable */
+.trip-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  flex-grow: 1;
+  padding-bottom: 0; /* Remove padding-bottom since we no longer have actions */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .trip-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .trip-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .trip-card-actions {
+    grid-template-columns: 1fr;
+  }
+} 

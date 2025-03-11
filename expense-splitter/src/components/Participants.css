@@ -1,0 +1,134 @@
+.participants-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.add-participant-form {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-participant-form form {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.add-participant-form input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.add-participant-form input:focus {
+  border-color: #4a6fa5;
+  box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+  outline: none;
+}
+
+.add-participant-form button {
+  background-color: #4a6fa5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-participant-form button:hover {
+  background-color: #3a5982;
+  transform: translateY(-2px);
+}
+
+.add-participant-form button:disabled {
+  background-color: #b0bec5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.participants-list {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.participants-list h3 {
+  margin-top: 0;
+  color: #4a6fa5;
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1rem;
+}
+
+.no-participants {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.participants-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.participants-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.participants-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.participant-name {
+  font-weight: 500;
+}
+
+.remove-participant-button {
+  background-color: transparent;
+  border: none;
+  color: #c62828;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.remove-participant-button:hover {
+  background-color: #ffebee;
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .add-participant-form form {
+    flex-direction: column;
+  }
+  
+  .add-participant-form button {
+    width: 100%;
+    padding: 0.75rem 0;
+  }
+} 

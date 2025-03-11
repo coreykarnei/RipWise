@@ -1,0 +1,140 @@
+/* Export.css - Enhanced styling for the export view */
+.export-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.export-container h2 {
+  color: #4a6fa5;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.export-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.copy-button, .download-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.copy-button {
+  background-color: #4a6fa5;
+  color: white;
+}
+
+.copy-button:hover {
+  background-color: #3a5982;
+  transform: translateY(-2px);
+}
+
+.download-button {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.download-button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.copy-button:active, .download-button:active {
+  transform: translateY(1px);
+}
+
+.summary-preview {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.summary-preview h3 {
+  margin-top: 0;
+  color: #4a6fa5;
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copy-hint {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.summary-text {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 1rem;
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #333;
+  min-height: 300px;
+  max-height: 500px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.summary-text:hover {
+  border-color: #4a6fa5;
+}
+
+.copy-status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(46, 125, 50, 0.9);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.copy-status.visible {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .export-actions {
+    flex-direction: column;
+  }
+  
+  .copy-button, .download-button {
+    width: 100%;
+  }
+  
+  .summary-text {
+    max-height: 400px;
+  }
+}

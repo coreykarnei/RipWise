@@ -1,0 +1,216 @@
+/* AddTransaction.css - Styling for the add transaction form */
+
+.add-transaction-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-transaction-container h2 {
+  color: #4a6fa5;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+  font-weight: 600;
+}
+
+.transaction-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Form inputs styling */
+.form-group input,
+.form-group select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background-color: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #4a6fa5;
+  box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+  outline: none;
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+/* Participants section */
+.participants-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+
+.participant-checkbox {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.participant-checkbox:hover {
+  background-color: #f5f5f5;
+}
+
+.participant-checkbox label {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  flex: 1;
+}
+
+/* Add participant section */
+.add-participant-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.add-participant-group input {
+  flex-grow: 1;
+}
+
+.add-participant-button {
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-participant-button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.add-participant-button:active {
+  transform: translateY(1px);
+}
+
+/* Form actions */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cancel-button,
+.submit-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-button {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.cancel-button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.submit-button {
+  background-color: #4a6fa5;
+  color: white;
+}
+
+.submit-button:hover {
+  background-color: #3a5982;
+  transform: translateY(-2px);
+}
+
+.cancel-button:active,
+.submit-button:active {
+  transform: translateY(1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .add-transaction-container {
+    padding: 1rem;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .cancel-button,
+  .submit-button {
+    width: 100%;
+  }
+  
+  .participants-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Additional styles for validation */
+.error {
+  border-color: #c62828 !important;
+  background-color: #fff8f8;
+}
+
+.error-message {
+  color: #c62828;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.participants-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.select-all-button {
+  background: none;
+  border: none;
+  color: #4a6fa5;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.select-all-button:hover {
+  color: #3a5982;
+}
