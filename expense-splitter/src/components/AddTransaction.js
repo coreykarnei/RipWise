@@ -11,7 +11,7 @@ const AddTransaction = ({
   onAddParticipant,
   isEditMode = false
 }) => {
-  const { id, tripId } = useParams();
+  const { transactionId, tripId } = useParams();
   const navigate = useNavigate();
 
   // Form state
@@ -51,8 +51,8 @@ const AddTransaction = ({
 
   // If in edit mode, find the transaction and populate the form
   useEffect(() => {
-    if (isEditMode && id) {
-      const transaction = transactions.find(t => t.id === id);
+    if (isEditMode && transactionId) {
+      const transaction = transactions.find(t => t.id === transactionId);
       if (transaction) {
         setPaidBy(transaction.paidBy);
         setAmount(transaction.amount.toString());
@@ -84,7 +84,7 @@ const AddTransaction = ({
         setFormErrors({});
       }
     }
-  }, [isEditMode, id, transactions, participants]);
+  }, [isEditMode, transactionId, transactions, participants]);
 
   // Validate total percentage when submitting
   useEffect(() => {
@@ -133,35 +133,29 @@ const AddTransaction = ({
       setIsSubmitting(false);
       return;
     }
-
-    // Get participants who are included with percentages > 0
-    const includedParticipants = Object.entries(participantShares)
-      .filter(([_, share]) => share.included && Number(share.percentage) > 0)
+    
+    // Get selected participants (included === true)
+    const selectedParticipants = Object.entries(participantShares)
+      .filter(([_, share]) => share.included)
       .map(([name]) => name);
-
-    const transactionData = {
+    
+    // Create transaction object
+    const transaction = {
       paidBy,
       amount: parseFloat(amount),
       description,
-      participants: includedParticipants,
-      participantShares: participantShares,
-      splitMode: splitMode
+      participants: selectedParticipants,
+      participantShares: splitMode === 'percentage' ? participantShares : null
     };
-
-    if (isEditMode && id) {
-      onEditTransaction(id, transactionData);
+    
+    // Add or edit transaction
+    if (isEditMode) {
+      onEditTransaction(transactionId, transaction);
+      navigate(`/trip/${tripId}`);
     } else {
-      onAddTransaction(transactionData);
+      onAddTransaction(transaction);
+      navigate(`/trip/${tripId}`);
     }
-
-    // Reset form and navigate back to trip expenses page
-    setPaidBy('');
-    setAmount('');
-    setDescription('');
-    setParticipantShares({});
-    setSplitMode('equal');
-    setIsSubmitting(false);
-    navigate(`/trip/${tripId}`);
   };
 
   const handleSplitModeChange = (mode) => {
