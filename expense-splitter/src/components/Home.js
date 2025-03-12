@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './Home.css';
-import { CalendarIcon, UserIcon, UsersIcon, TrashIcon, EditIcon } from 'lucide-react';
+import { CalendarIcon, UserIcon, UsersIcon, TrashIcon } from 'lucide-react';
 import Modal from './Modal';
 
 const Home = ({ transactions, onDeleteTransaction, onEditTransaction, onAddTransaction, participants = [] }) => {
@@ -20,6 +20,19 @@ const Home = ({ transactions, onDeleteTransaction, onEditTransaction, onAddTrans
     } else {
       // Otherwise proceed to add transaction
       onAddTransaction();
+    }
+  };
+
+  const handleTransactionClick = (id) => {
+    onEditTransaction(id);
+  };
+
+  const handleDeleteClick = (e, id) => {
+    // Stop event propagation to prevent navigation
+    e.stopPropagation();
+    
+    if (window.confirm('Are you sure you want to delete this transaction? This action cannot be undone.')) {
+      onDeleteTransaction(id);
     }
   };
 
@@ -60,6 +73,7 @@ const Home = ({ transactions, onDeleteTransaction, onEditTransaction, onAddTrans
                 className={`transaction-item ${hoveredCard === transaction.id ? 'hovered' : ''}`}
                 onMouseEnter={() => setHoveredCard(transaction.id)}
                 onMouseLeave={() => setHoveredCard(null)}
+                onClick={() => handleTransactionClick(transaction.id)}
               >
                 <div className="transaction-content">
                   <div className="transaction-main">
@@ -82,17 +96,10 @@ const Home = ({ transactions, onDeleteTransaction, onEditTransaction, onAddTrans
                       </div>
                     </div>
                     
-                    <div className={`transaction-actions ${hoveredCard === transaction.id ? 'visible' : ''}`}>
+                    <div className="delete-transaction-button">
                       <button 
-                        onClick={() => onEditTransaction(transaction.id)}
-                        className="edit-button"
-                        aria-label="Edit transaction"
-                      >
-                        <EditIcon size={16} />
-                      </button>
-                      <button 
-                        onClick={() => onDeleteTransaction(transaction.id)}
-                        className="delete-button"
+                        onClick={(e) => handleDeleteClick(e, transaction.id)}
+                        className="delete-trip-button-icon"
                         aria-label="Delete transaction"
                       >
                         <TrashIcon size={16} />

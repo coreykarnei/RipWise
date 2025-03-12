@@ -273,6 +273,7 @@
 }
 
 .transaction-item {
+  cursor: pointer;
   background-color: white;
   border-radius: 8px;
   border-left: 4px solid #4a6fa5;
@@ -339,38 +340,7 @@
 }
 
 .transaction-actions {
-  display: flex;
-  gap: 0.5rem;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.transaction-actions.visible {
-  opacity: 1;
-}
-
-.edit-button, .delete-button {
-  background: none;
-  border: none;
-  width: 28px;
-  height: 28px;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s;
-  color: #666;
-}
-
-.edit-button:hover {
-  background-color: #f0f0f0;
-  color: #333;
-}
-
-.delete-button:hover {
-  background-color: #ffebee;
-  color: #c62828;
+  display: none;
 }
 
 .transaction-participants {
@@ -444,4 +414,30 @@
 .empty-state .action-button:hover {
   background-color: #3a5982;
   transform: translateY(-2px);
+}
+
+/* Style for the delete button that matches the trips page */
+.delete-transaction-button {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.delete-trip-button-icon {
+  background-color: transparent;
+  border: none;
+  color: #c62828;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.delete-trip-button-icon:hover {
+  background-color: #ffebee;
+  transform: scale(1.1);
 }
